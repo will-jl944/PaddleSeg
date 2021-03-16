@@ -1,5 +1,5 @@
 batch_size: 1
-iters: 190
+iters: 380
 
 train_dataset:
   type: OpticDiscSeg
