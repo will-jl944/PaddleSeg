@@ -31,6 +31,11 @@ learning_rate:
     power: 0.9
     end_lr: 0
 
+loss:
+  types:
+    - type: CrossEntropyLoss
+  coef: [1, 1, 1, 1, 1]
+
 model:
   type: UNet
   num_classes: 2
