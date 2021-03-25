@@ -7,7 +7,7 @@ train_dataset:
   transforms:
     - type: Resize
       target_size: [512, 512]
-    - type: RandomHorizontalFlip
+#    - type: RandomHorizontalFlip
     - type: Normalize
   mode: train
 
@@ -38,6 +38,15 @@ loss:
   coef: [1, 1, 1, 1, 1]
 
 model:
-  type: BiSeNetV2
-  num_classes: 2
-  pretrained: Null
+  type: DeepLabV3P
+  backbone:
+    type: ResNet50_vd
+    output_stride: 8
+    multi_grid: [1, 2, 4]
+    pretrained: https://bj.bcebos.com/paddleseg/dygraph/resnet50_vd_ssld_v2.tar.gz
+  num_classes: 19
+  backbone_indices: [0, 3]
+  aspp_ratios: [1, 12, 24, 36]
+  aspp_out_channels: 256
+  align_corners: False
+  pretrained: null
