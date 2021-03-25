@@ -95,8 +95,9 @@ def main(args):
                      ['-' * 48])
     logger.info(info)
 
-    place = 'gpu' if env_info['Paddle compiled with cuda'] and env_info[
-        'GPUs used'] else 'cpu'
+    # place = 'gpu' if env_info['Paddle compiled with cuda'] and env_info[
+    #     'GPUs used'] else 'cpu'
+    place = 'cpu'
 
     paddle.set_device(place)
     if not args.cfg:
