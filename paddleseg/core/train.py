@@ -124,6 +124,7 @@ def train(model,
                 break
             train_reader_cost += timer.elapsed_time()
             images = data[0]
+            print('net_in: ', images)
 
             labels = data[1].astype('int64')
             edges = None
