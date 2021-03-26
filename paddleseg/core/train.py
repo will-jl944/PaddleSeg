@@ -134,6 +134,7 @@ def train(model,
                 logits_list = ddp_model(images)
             else:
                 logits_list = model(images)
+                print('net_out: ', logits_list)
             loss = loss_computation(
                 logits_list=logits_list,
                 labels=labels,
