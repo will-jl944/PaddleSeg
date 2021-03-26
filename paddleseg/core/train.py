@@ -15,8 +15,6 @@
 import os
 import time
 
-import paddle
-paddle.seed(12345)
 import paddle.nn.functional as F
 
 from paddleseg.utils import Timer, calculate_eta, resume, logger
@@ -52,10 +50,10 @@ def train(model,
           optimizer=None,
           save_dir='output',
           iters=10000,
-          batch_size=2,
+          batch_size=1,
           resume_model=None,
           save_interval=1000,
-          log_iters=10,
+          log_iters=1,
           num_workers=0,
           use_vdl=False,
           losses=None):
@@ -126,7 +124,7 @@ def train(model,
                 break
             train_reader_cost += timer.elapsed_time()
             images = data[0]
-            
+
             labels = data[1].astype('int64')
             edges = None
             if len(data) == 3:
