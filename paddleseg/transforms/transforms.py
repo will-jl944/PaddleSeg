@@ -76,7 +76,7 @@ class Compose:
         im = np.swapaxes(im, 1, 2)
         im = np.swapaxes(im, 1, 0)
         print('after transform:')
-        print('im: ', np.sum(im))
+        print('im: ', np.sum(im), im.dtype)
         print('mask: ', label.dtype)
         return (im, label)
 
