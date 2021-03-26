@@ -310,6 +310,7 @@ class ResNet_vd(nn.Layer):
 
     def forward(self, inputs):
         y = self.conv1_1(inputs)
+        print('conv1_1: ', paddle.sum(y))
         y = self.conv1_2(y)
         y = self.conv1_3(y)
         self.conv1_logit = y.clone()
