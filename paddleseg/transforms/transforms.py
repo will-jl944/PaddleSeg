@@ -379,8 +379,8 @@ class Normalize:
             (tuple). When label is None, it returns (im, ), otherwise it returns (im, label).
         """
 
-        mean = np.array(self.mean)[np.newaxis, np.newaxis, :]
-        std = np.array(self.std)[np.newaxis, np.newaxis, :]
+        mean = np.array(self.mean, dtype=np.float32)[np.newaxis, np.newaxis, :]
+        std = np.array(self.std, dtype=np.float32)[np.newaxis, np.newaxis, :]
         im = functional.normalize(im, mean, std)
 
         if label is None:
@@ -390,6 +390,9 @@ class Normalize:
                 print('after normalize:')
                 print('im: ', np.sum(im), im.dtype)
                 print('mask: ', np.sum(label))
+            print('after normalize:')
+            print('im: ', np.sum(im), im.dtype)
+            print('mask: ', np.sum(label))
             return (im, label)
 
 
