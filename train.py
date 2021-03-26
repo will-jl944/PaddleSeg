@@ -15,6 +15,7 @@
 import argparse
 
 import paddle
+paddle.seed(12345)
 
 from paddleseg.cvlibs import manager, Config
 from paddleseg.utils import get_sys_env, logger
