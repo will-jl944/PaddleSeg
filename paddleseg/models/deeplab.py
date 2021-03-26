@@ -72,7 +72,7 @@ class DeepLabV3P(nn.Layer):
 
     def forward(self, x):
         feat_list = self.backbone(x)
-        print(paddle.sum(feat_list[0]))
+        # print(paddle.sum(feat_list[0]))
         logit_list = self.head(feat_list)
         return [
             F.interpolate(
