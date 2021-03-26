@@ -124,7 +124,7 @@ def train(model,
                 break
             train_reader_cost += timer.elapsed_time()
             images = data[0]
-            print('net_in: ', images)
+            # print('net_in: ', images)
 
             labels = data[1].astype('int64')
             edges = None
@@ -135,7 +135,7 @@ def train(model,
                 logits_list = ddp_model(images)
             else:
                 logits_list = model(images)
-                print('net_out: ', logits_list)
+                # print('net_out: ', logits_list)
             loss = loss_computation(
                 logits_list=logits_list,
                 labels=labels,
