@@ -194,7 +194,7 @@ class Resize:
         if label is None:
             return (im, )
         else:
-            print('after decode:')
+            print('after resize:')
             print('im: ', np.sum(im))
             print('mask: ', np.sum(label))
             return (im, label)
@@ -384,7 +384,7 @@ class Normalize:
         if label is None:
             return (im, )
         else:
-            print('after decode:')
+            print('after normalize:')
             print('im: ', np.sum(im))
             print('mask: ', np.sum(label))
             return (im, label)
