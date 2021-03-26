@@ -72,7 +72,11 @@ class Compose:
             im = outputs[0]
             if len(outputs) == 2:
                 label = outputs[1]
-        im = np.transpose(im, (2, 0, 1))
+        # im = np.transpose(im, (2, 0, 1))
+        im = np.swapaxes(im, 1, 2)
+        im = np.swapaxes(im, 1, 0)
+        print('after transform:')
+        print('im: ', np.sum(im))
         return (im, label)
 
 
