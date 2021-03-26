@@ -395,9 +395,7 @@ class Normalize:
                 print('after normalize:')
                 print('im: ', np.sum(im), im.dtype)
                 print('mask: ', np.sum(label))
-            print('after normalize:')
-            print('im: ', np.sum(im), im.dtype)
-            print('mask: ', np.sum(label))
+
             return (im, label)
 
 
