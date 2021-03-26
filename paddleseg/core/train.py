@@ -14,7 +14,7 @@
 
 import os
 import time
-
+import paddle
 import paddle.nn.functional as F
 
 from paddleseg.utils import Timer, calculate_eta, resume, logger
