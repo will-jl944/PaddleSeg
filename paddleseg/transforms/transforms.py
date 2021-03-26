@@ -21,7 +21,7 @@ from PIL import Image
 from paddleseg.cvlibs import manager
 from paddleseg.transforms import functional
 
-VERBOSE = True
+VERBOSE = False
 @manager.TRANSFORMS.add_component
 class Compose:
     """
