@@ -63,7 +63,9 @@ class Compose:
             raise ValueError('Can\'t read The image file {}!'.format(im))
         if self.to_rgb:
             im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
-
+        print('after decode:')
+        print('im: ', np.sum(im))
+        print('mask: ', np.sum(label))
         for op in self.transforms:
             outputs = op(im, label)
             im = outputs[0]
@@ -192,6 +194,9 @@ class Resize:
         if label is None:
             return (im, )
         else:
+            print('after decode:')
+            print('im: ', np.sum(im))
+            print('mask: ', np.sum(label))
             return (im, label)
 
 
@@ -379,6 +384,9 @@ class Normalize:
         if label is None:
             return (im, )
         else:
+            print('after decode:')
+            print('im: ', np.sum(im))
+            print('mask: ', np.sum(label))
             return (im, label)
 
 
