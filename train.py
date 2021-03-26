@@ -14,7 +14,7 @@
 
 import argparse
 import os
-os.environ['CUDA_VISIABLE_DEVICES'] = '0'
+os.environ['CUDA_VISIABLE_DEVICES'] = ''
 
 import paddle
 paddle.seed(12345)
