@@ -378,8 +378,11 @@ class XceptionDeeplab(nn.Layer):
         self.init_weight()
 
     def forward(self, inputs):
+        print('inputs: ', paddle.sum(inputs))
         x = self._conv1(inputs)
+        print('after conv1: ', paddle.sum(x))
         x = self._conv2(x)
+        print('after conv2: ', paddle.sum(x))
         feat_list = []
         for i, ef in enumerate(self.entry_flow):
             x = ef(x)
