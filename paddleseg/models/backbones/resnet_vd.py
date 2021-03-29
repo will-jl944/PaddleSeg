@@ -200,6 +200,8 @@ class ResNet_vd(nn.Layer):
                  multi_grid=(1, 1, 1),
                  pretrained=None):
         super(ResNet_vd, self).__init__()
+        print('layers: {}; output_stride: {}; multi_grid: {}; pretrained: {}'
+              .format(layers, output_stride, multi_grid, pretrained))
 
         self.conv1_logit = None  # for gscnn shape stream
         self.layers = layers
