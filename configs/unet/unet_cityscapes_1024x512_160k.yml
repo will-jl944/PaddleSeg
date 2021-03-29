@@ -1,18 +1,19 @@
 batch_size: 1
-iters: 380
+iters: 267
 
 train_dataset:
   type: OpticDiscSeg
-  dataset_root: data/optic_disc_seg
+  dataset_root: ../PaddleX/optic_disc_seg
   transforms:
     - type: Resize
       target_size: [512, 512]
+    #    - type: RandomHorizontalFlip
     - type: Normalize
   mode: train
 
 val_dataset:
   type: OpticDiscSeg
-  dataset_root: data/optic_disc_seg
+  dataset_root: ../PaddleX/optic_disc_seg
   transforms:
     - type: Resize
       target_size: [512, 512]
