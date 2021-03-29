@@ -86,7 +86,7 @@ def parse_args():
         '--log_iters',
         dest='log_iters',
         help='Display logging information at every log_iters',
-        default=10,
+        default=1,
         type=int)
     parser.add_argument(
         '--use_vdl',
