@@ -56,7 +56,7 @@ def train(model,
           batch_size=2,
           resume_model=None,
           save_interval=1000,
-          log_iters=10,
+          log_iters=1,
           num_workers=0,
           use_vdl=False,
           losses=None,
@@ -104,12 +104,12 @@ def train(model,
             ddp_model = paddle.DataParallel(model)
 
     batch_sampler = paddle.io.DistributedBatchSampler(
-        train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+        train_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
 
     loader = paddle.io.DataLoader(
         train_dataset,
         batch_sampler=batch_sampler,
-        num_workers=num_workers,
+        num_workers=0,
         return_list=True,
     )
 
