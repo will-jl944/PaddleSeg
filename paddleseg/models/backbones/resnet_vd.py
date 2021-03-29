@@ -58,8 +58,11 @@ class ConvBNLayer(nn.Layer):
     def forward(self, inputs):
         if self.is_vd_mode:
             inputs = self._pool2d_avg(inputs)
+            print('after avg pool: ', paddle.sum(inputs))
         y = self._conv(inputs)
+        print('after conv: ', y)
         y = self._batch_norm(y)
+        print('after bn: ', y)
         y = self._act_op(y)
 
         return y
@@ -310,9 +313,11 @@ class ResNet_vd(nn.Layer):
 
     def forward(self, inputs):
         print('inputs: ', paddle.sum(inputs))
+        print('conv1_1:')
         y = self.conv1_1(inputs)
-        print('conv1_1: ', paddle.sum(y))
+        print('conv1_2:')
         y = self.conv1_2(y)
+        print('conv1_3')
         y = self.conv1_3(y)
         self.conv1_logit = y.clone()
         y = self.pool2d_max(y)
