@@ -448,6 +448,7 @@ class Normalize:
         if VERBOSE:
             print('after normalize:')
             print('im: ', np.sum(im), im.dtype)
+            print('mask: ', np.sum(label), label.dtype)
         if label is None:
             return (im, )
         else:
