@@ -111,6 +111,7 @@ def train(model,
         batch_sampler=batch_sampler,
         num_workers=0,
         return_list=True,
+        use_shared_memory=True
     )
 
     if use_vdl:
