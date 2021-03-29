@@ -59,6 +59,7 @@ class UNet(nn.Layer):
         self.init_weight()
 
     def forward(self, x):
+        print('input: ', paddle.sum(x))
         logit_list = []
         x, short_cuts = self.encode(x)
         x = self.decode(x, short_cuts)
