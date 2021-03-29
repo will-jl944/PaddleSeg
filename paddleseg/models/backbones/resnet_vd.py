@@ -60,9 +60,9 @@ class ConvBNLayer(nn.Layer):
             inputs = self._pool2d_avg(inputs)
             print('after avg pool: ', paddle.sum(inputs))
         y = self._conv(inputs)
-        print('after conv: ', y)
+        print('after conv: ', paddle.sum(y))
         y = self._batch_norm(y)
-        print('after bn: ', y)
+        print('after bn: ', paddle.sum(y))
         y = self._act_op(y)
 
         return y
