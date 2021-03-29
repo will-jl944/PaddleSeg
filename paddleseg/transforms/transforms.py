@@ -21,6 +21,7 @@ from PIL import Image
 from paddleseg.cvlibs import manager
 from paddleseg.transforms import functional
 
+VERBOSE = True
 
 @manager.TRANSFORMS.add_component
 class Compose:
@@ -60,6 +61,8 @@ class Compose:
             raise ValueError('Can\'t read The image file {}!'.format(im))
         if self.to_rgb:
             im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+        if VERBOSE:
+            print('og im: ', np.sum(im), im.dtype)
 
         for op in self.transforms:
             outputs = op(im, label)
@@ -185,6 +188,10 @@ class Resize:
         if label is not None:
             label = functional.resize(label, self.target_size,
                                       cv2.INTER_NEAREST)
+
+        if VERBOSE:
+            print('after resize: ')
+            print('im: ', np.sum(im), im.dtype)
 
         if label is None:
             return (im, )
@@ -438,6 +445,9 @@ class Normalize:
         std = np.array(self.std)[np.newaxis, np.newaxis, :]
         im = functional.normalize(im, mean, std)
 
+        if VERBOSE:
+            print('after normalize:')
+            print('im: ', np.sum(im), im.dtype)
         if label is None:
             return (im, )
         else:
