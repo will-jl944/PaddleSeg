@@ -440,7 +440,7 @@ class Normalize:
         Returns:
             (tuple). When label is None, it returns (im, ), otherwise it returns (im, label).
         """
-        im = im.astype(np.float32)
+        # im = im.astype(np.float32)
         mean = np.asarray(
             self.mean, dtype=np.float32)[np.newaxis, np.newaxis, :]
         std = np.asarray(self.std, dtype=np.float32)[np.newaxis, np.newaxis, :]
