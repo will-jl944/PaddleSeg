@@ -139,9 +139,9 @@ class Config(object):
     @property
     def learning_rate(self) -> paddle.optimizer.lr.LRScheduler:
         _learning_rate = self.dic.get('learning_rate', {}).get('value')
-        if not _learning_rate:
-            raise RuntimeError(
-                'No learning rate specified in the configuration file.')
+        # if not _learning_rate:
+        #     raise RuntimeError(
+        #         'No learning rate specified in the configuration file.')
 
         args = self.decay_args
         decay_type = args.pop('type')
