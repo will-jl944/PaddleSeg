@@ -18,8 +18,21 @@ from PIL import Image, ImageEnhance
 from scipy.ndimage.morphology import distance_transform_edt
 
 
-def normalize(im, mean, std):
-    im = im.astype(np.float32, copy=False) / 255.0
+# def normalize(im, mean, std):
+#     im = im.astype(np.float32, copy=False) / 255.0
+#     im -= mean
+#     im /= std
+#     return im
+
+
+def normalize(im, mean, std, min_value=[0, 0, 0], max_value=[255, 255, 255]):
+    # Rescaling (min-max normalization)
+    range_value = np.asarray(
+        [1. / (max_value[i] - min_value[i]) for i in range(len(max_value))],
+        dtype=np.float32)
+    im = (im - np.asarray(min_value, dtype=np.float32)) * range_value
+
+    # Standardization (Z-score Normalization)
     im -= mean
     im /= std
     return im
