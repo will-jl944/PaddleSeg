@@ -54,7 +54,7 @@ class Compose:
             (tuple). A tuple including image, image info, and label after transformation.
         """
         if isinstance(im, str):
-            im = cv2.imread(im).astype('uint8')
+            im = cv2.imread(im, cv2.IMREAD_ANYDEPTH | cv2.IMREAD_ANYCOLOR)
         if isinstance(label, str):
             label = np.asarray(Image.open(label))
         if im is None:
