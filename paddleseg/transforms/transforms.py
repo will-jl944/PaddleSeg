@@ -441,8 +441,8 @@ class Normalize:
             (tuple). When label is None, it returns (im, ), otherwise it returns (im, label).
         """
 
-        mean = np.array(self.mean)[np.newaxis, np.newaxis, :]
-        std = np.array(self.std)[np.newaxis, np.newaxis, :]
+        mean = np.array(self.mean, dtype='float32')[np.newaxis, np.newaxis, :]
+        std = np.array(self.std, dtype='float32')[np.newaxis, np.newaxis, :]
         im = functional.normalize(im, mean, std)
 
         if VERBOSE:
