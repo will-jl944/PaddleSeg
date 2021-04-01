@@ -35,7 +35,7 @@ learning_rate:
 loss:
   types:
     - type: CrossEntropyLoss
-  coef: [1]
+  coef: [1.0, 0.4]
 
 model:
   type: FastSCNN
