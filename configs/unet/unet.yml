@@ -34,7 +34,11 @@ learning_rate:
 
 loss:
   types:
-    - type: CrossEntropyLoss
+    - type: MixedLoss
+      losses:
+        - type: CrossEntropyLoss
+        - type: LovaszSoftmaxLoss
+      coef: [0.8, 0.2]
   coef: [1]
 
 model:
